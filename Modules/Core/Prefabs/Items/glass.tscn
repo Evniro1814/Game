@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/SDK/Scripts/Common/Item/ItemOnGround/ItemOnGround.gd" type="Script" id=1]
+[ext_resource path="res://Modules/TestingModule/Models/Glass.glb" type="PackedScene" id=2]
+[ext_resource path="res://Modules/Core/Items/Misc/glass.tres" type="Resource" id=3]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+emission_enabled = true
+emission = Color( 0.278431, 0.0117647, 0.0117647, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.658075
+height = 2.73127
+
+[node name="ItemOnGround" type="RigidBody"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+item_reference = ExtResource( 3 )
+
+[node name="Glass" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.517845, 0, 0, 0, 0.535453, 0, 0, 0, 0.517845, 0, 0, 0 )
+
+[node name="glass" parent="Glass" index="0"]
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110831, 0 )
+shape = SubResource( 1 )
+
+[editable path="Glass"]

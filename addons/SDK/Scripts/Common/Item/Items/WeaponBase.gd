@@ -1,0 +1,2 @@
+extends ItemRefBase
+class_name WeaponRefBase

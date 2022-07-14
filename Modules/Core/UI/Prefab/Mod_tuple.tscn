@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Panel
+
+var is_enabled:bool
+
+export var mod_name:String = \"modd\"
+
+onready var label = $Label
+onready var cbox = $CheckBox
+
+func _init(mod_name:String,is_enabled:bool):
+	label.text = mod_name
+
+func _ready():
+	label.text = mod_name
+"
+
+[node name="mod" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -768.0
+margin_bottom = -568.0
+script = SubResource( 1 )
+
+[node name="CheckBox" type="CheckBox" parent="."]
+anchor_left = 0.90625
+anchor_right = 1.0
+anchor_bottom = 1.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 0.90625
+anchor_bottom = 1.0
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}

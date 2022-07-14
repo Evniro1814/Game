@@ -1,0 +1,362 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="InputEventAction" id=1]
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Control
+var current_dialogue:Dialogue_Container
+
+var is_current_dialogue_changed:bool
+
+onready var inspector = $dialogue_inspector
+
+func _on_GraphEdit_popup_request(position):
+	pass
+
+
+func _on_dialogue_graph_edit_node_selected(node):
+	pass # Replace with function body.
+
+
+func load_dialogue_container():
+	pass
+func save_dialogue_container():
+	pass
+func new_dialogue_container():
+	pass
+
+
+
+#0 = phrase
+#1 = response
+func _on_PopupMenu_id_pressed(id):
+	pass
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Panel
+
+var a
+var b
+
+
+func fill_inspector(node):
+	pass
+"
+
+[node name="MainWindowControl" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+
+[node name="Character editor" type="Control" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ButtonSave" type="Button" parent="TabContainer/Character editor"]
+anchor_left = 0.255906
+anchor_top = 0.93617
+anchor_right = 0.363189
+anchor_bottom = 0.996454
+shortcut = SubResource( 2 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonNew" type="Button" parent="TabContainer/Character editor"]
+anchor_left = 0.00393701
+anchor_top = 0.93617
+anchor_right = 0.111221
+anchor_bottom = 0.996454
+text = "New character"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonOpen" type="Button" parent="TabContainer/Character editor"]
+anchor_left = 0.129921
+anchor_top = 0.93617
+anchor_right = 0.237205
+anchor_bottom = 0.996454
+text = "Open"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonSaveAs" type="Button" parent="TabContainer/Character editor"]
+anchor_left = 0.383858
+anchor_top = 0.93617
+anchor_right = 0.491142
+anchor_bottom = 0.996454
+text = "Save as..."
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/Character editor"]
+anchor_left = -0.00393701
+anchor_right = 1.0
+anchor_bottom = 0.923759
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Character stats" type="Control" parent="TabContainer/Character editor/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Appearance" type="Control" parent="TabContainer/Character editor/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Item editor" type="Control" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Open" type="Button" parent="TabContainer/Item editor"]
+anchor_left = 0.129921
+anchor_top = 0.93617
+anchor_right = 0.237205
+anchor_bottom = 0.996454
+text = "Open"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Save" type="Button" parent="TabContainer/Item editor"]
+anchor_left = 0.255906
+anchor_top = 0.93617
+anchor_right = 0.36319
+anchor_bottom = 0.996454
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonSaveAs" type="Button" parent="TabContainer/Item editor"]
+anchor_left = 0.383858
+anchor_top = 0.93617
+anchor_right = 0.491142
+anchor_bottom = 0.996454
+text = "Save as..."
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonNewItem" type="Button" parent="TabContainer/Item editor"]
+anchor_left = 0.00393701
+anchor_top = 0.93617
+anchor_right = 0.111221
+anchor_bottom = 0.996454
+text = "New item"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tree" type="Tree" parent="TabContainer/Item editor"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Dialogue editor" type="Control" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = SubResource( 3 )
+
+[node name="Export" type="Button" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.129921
+anchor_top = 0.93617
+anchor_right = 0.237205
+anchor_bottom = 0.996454
+hint_tooltip = "Exports dialogue_project "
+text = "Export"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Save" type="Button" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.255906
+anchor_top = 0.93617
+anchor_right = 0.36319
+anchor_bottom = 0.996454
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonSaveAs" type="Button" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.383858
+anchor_top = 0.93617
+anchor_right = 0.491142
+anchor_bottom = 0.996454
+text = "Save as..."
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonNewDialogue" type="Button" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.00393701
+anchor_top = 0.93617
+anchor_right = 0.111221
+anchor_bottom = 0.996454
+text = "New dialogue"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="dialogue_inspector" type="Panel" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.751969
+anchor_top = 0.0567376
+anchor_right = 0.972441
+anchor_bottom = 0.851064
+margin_top = 1.90735e-06
+script = SubResource( 4 )
+
+[node name="Phrase_Editor" type="Control" parent="TabContainer/Dialogue editor/dialogue_inspector"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Response_Editor" type="Control" parent="TabContainer/Dialogue editor/dialogue_inspector"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="cont_editor" type="PanelContainer" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.00393701
+anchor_top = 0.0567376
+anchor_right = 0.728346
+anchor_bottom = 0.851064
+margin_top = 1.90735e-06
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="dialogue_graph_edit" type="GraphEdit" parent="TabContainer/Dialogue editor/cont_editor"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 729.0
+margin_bottom = 441.0
+
+[node name="Label" type="Label" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.00393701
+anchor_right = 0.0836614
+anchor_bottom = 0.0496454
+text = "Dialogue id:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Dialogue_ID" type="LineEdit" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.0905512
+anchor_right = 0.200787
+anchor_bottom = 0.0425532
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.216535
+anchor_right = 0.332677
+anchor_bottom = 0.0496454
+margin_right = -37.0
+text = "Starting phrase ID:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Dialogue_Starting_phrase" type="LineEdit" parent="TabContainer/Dialogue editor"]
+anchor_left = 0.34252
+anchor_right = 0.452756
+anchor_bottom = 0.0425532
+
+[node name="PopupMenu" type="PopupMenu" parent="TabContainer/Dialogue editor"]
+visible = true
+anchor_left = 0.311024
+anchor_top = 0.170213
+anchor_right = 0.437008
+anchor_bottom = 0.301418
+items = [ "Add phrase", null, 0, false, false, 0, 0, null, "", false, "", null, 0, false, true, 1, 0, null, "", true, "Add response", null, 0, false, false, 2, 0, null, "", false ]
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Quest editor" type="Control" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Export" type="Control" parent="TabContainer"]
+visible = false
+
+[node name="Settings" type="Control" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ButtonLoad" type="Button" parent="TabContainer/Settings"]
+anchor_left = 0.870079
+anchor_top = 0.950355
+anchor_right = 0.98819
+anchor_bottom = 0.992908
+margin_top = 4.76837e-07
+margin_bottom = 1.90735e-06
+text = "Load module"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Settings"]
+anchor_left = 0.00393701
+anchor_right = 0.0551181
+anchor_bottom = 0.0851064
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LoadedModules" type="Node" parent="."]
+
+[connection signal="node_selected" from="TabContainer/Dialogue editor/cont_editor/dialogue_graph_edit" to="TabContainer/Dialogue editor" method="_on_dialogue_graph_edit_node_selected"]
+[connection signal="popup_request" from="TabContainer/Dialogue editor/cont_editor/dialogue_graph_edit" to="TabContainer/Dialogue editor" method="_on_GraphEdit_popup_request"]
+[connection signal="id_pressed" from="TabContainer/Dialogue editor/PopupMenu" to="TabContainer/Dialogue editor" method="_on_PopupMenu_id_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://addons/SDK/Scripts/Common/Item/Items/MiscItemReference.gd" type="Script" id=1]
+[ext_resource path="res://Modules/Core/UI/Textures/Placeholder/Placeholder.dds" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+item_id = "glass"
+item_name = "str_cup"
+item_description = "str_cup_descr"
+item_weight = 0.5
+item_prefab_path = "res://Modules/Core/Prefabs/Items/glass.tscn"
+item_icon = ExtResource( 2 )

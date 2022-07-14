@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+var item_instance:ItemInstance
+
+func init_inventory_element(_item_instance:ItemInstance):
+	item_instance = _item_instance
+	$ItemIcon.texture = item_instance.icon
+	return self
+"
+
+[node name="Item" type="PanelContainer"]
+anchor_right = 0.3125
+anchor_bottom = 0.533333
+margin_bottom = -3.05176e-05
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 313.0
+margin_bottom = 313.0

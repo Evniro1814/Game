@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/SDK/Scripts/Common/Item/Items/MiscItemReference.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+item_id = "ref"
+item_name = "rere"
+item_description = "dese"
+item_weight = 2.0
+item_prefab_path = ""

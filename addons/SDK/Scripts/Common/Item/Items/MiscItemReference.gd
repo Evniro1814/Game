@@ -1,0 +1,3 @@
+extends ItemReferenceBase
+class_name MiscItemReference
+

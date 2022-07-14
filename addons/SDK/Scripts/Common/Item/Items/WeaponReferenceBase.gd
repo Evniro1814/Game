@@ -1,0 +1,4 @@
+extends ItemReferenceBase
+class_name WeaponReferenceBase
+
+

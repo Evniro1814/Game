@@ -1,0 +1,4 @@
+extends ArrayMesh
+class_name ArrayMesh_VertexGroupSupport
+
+

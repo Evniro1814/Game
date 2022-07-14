@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://addons/SDK/Scripts/System/Mod/Mod.gd\"
+
+
+#TODO Сделать все , что нужно
+"
+
+[node name="Module" type="Node"]
+script = SubResource( 1 )
+mod_name = "Core"
+mod_description = "this is core plugin"
+mod_folder = "Core/"
+packages = [ "Core.pck" ]
