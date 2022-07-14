@@ -183,6 +183,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Game"
+run/main_scene="res://Modules/Core/Map/Testing/Testing_envir.tscn"
 config/use_hidden_project_data_directory=false
 config/icon="res://addons/SDK/Icons/icon.png"
 
