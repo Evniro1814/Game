@@ -1,0 +1,205 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Agent",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/AI/Custom Pathfinding/Agent/Agent.gd"
+}, {
+"base": "ItemReferenceBase",
+"class": "ArmorReferenceBase",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/Items/ArmorReferenceBase.gd"
+}, {
+"base": "ArrayMesh",
+"class": "ArrayMesh_VertexGroupSupport",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/System/Meshes/MeshArrayVertex.gd"
+}, {
+"base": "Node",
+"class": "BaseState",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/FSM/State/BaseState.gd"
+}, {
+"base": "Node",
+"class": "CharacterEffectsNode",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Character/RPGSystem/CharacterEffects.gd"
+}, {
+"base": "Resource",
+"class": "CharacterSheet",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Character/SheetBase/CharacterSheet.gd"
+}, {
+"base": "Node",
+"class": "CombatScript",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Combat/Combat_Script.gd"
+}, {
+"base": "ItemReferenceBase",
+"class": "ConsumableReferenceBase",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/Items/ConsumableReferenceBase.gd"
+}, {
+"base": "Resource",
+"class": "Dialogue_Container",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Dialogue/Resource/DialogueContainter.gd"
+}, {
+"base": "Resource",
+"class": "Dialogue_Phrase",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Dialogue/Resource/DialoguePhrase.gd"
+}, {
+"base": "Resource",
+"class": "Dialogue_Response",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Dialogue/Resource/DialogueResponse.gd"
+}, {
+"base": "Node",
+"class": "EffectNode",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Character/RPGSystem/Effects/Effect.gd"
+}, {
+"base": "Resource",
+"class": "EffectReference",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Character/RPGSystem/EffectReference/EffectReference.gd"
+}, {
+"base": "Node",
+"class": "ItemContainerBase",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/Container/ItemContainer.gd"
+}, {
+"base": "Reference",
+"class": "ItemInstance",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/ItemInstance/ItemInstance.gd"
+}, {
+"base": "RigidBody",
+"class": "ItemOnGround",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/ItemOnGround/ItemOnGround.gd"
+}, {
+"base": "Resource",
+"class": "ItemReferenceBase",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/Items/ItemReferenceBase.gd"
+}, {
+"base": "ItemInstance",
+"class": "MiscItemInstance",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/ItemInstance/Types/MiscItemInstance.gd"
+}, {
+"base": "ItemReferenceBase",
+"class": "MiscItemReference",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/Items/MiscItemReference.gd"
+}, {
+"base": "Node",
+"class": "ModuleManager",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/System/Mod/ModManagment/ModuleManager.gd"
+}, {
+"base": "Resource",
+"class": "PerkReference",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Character/SheetBase/CharacterSheetProperties/Perks/PerkReference.gd"
+}, {
+"base": "GraphNode",
+"class": "Phrase_Node",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/System/Editor/Dialogue/Nodes/Phrase_node.gd"
+}, {
+"base": "KinematicBody",
+"class": "PlayerController",
+"language": "GDScript",
+"path": "res://Modules/Core/Prefabs/PlayerController/PlayerController.gd"
+}, {
+"base": "GraphNode",
+"class": "Response_Node",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/System/Editor/Dialogue/Nodes/Response_node.gd"
+}, {
+"base": "Reference",
+"class": "Stack",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/System/Utility/Stack.gd"
+}, {
+"base": "Node",
+"class": "SystemScript",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/System/SystemScript.gd"
+}, {
+"base": "ItemRefBase",
+"class": "WeaponRefBase",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/Items/WeaponBase.gd"
+}, {
+"base": "ItemReferenceBase",
+"class": "WeaponReferenceBase",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/Item/Items/WeaponReferenceBase.gd"
+} ]
+_global_script_class_icons={
+"Agent": "",
+"ArmorReferenceBase": "",
+"ArrayMesh_VertexGroupSupport": "",
+"BaseState": "",
+"CharacterEffectsNode": "",
+"CharacterSheet": "",
+"CombatScript": "",
+"ConsumableReferenceBase": "",
+"Dialogue_Container": "",
+"Dialogue_Phrase": "",
+"Dialogue_Response": "",
+"EffectNode": "",
+"EffectReference": "",
+"ItemContainerBase": "",
+"ItemInstance": "",
+"ItemOnGround": "",
+"ItemReferenceBase": "",
+"MiscItemInstance": "",
+"MiscItemReference": "",
+"ModuleManager": "",
+"PerkReference": "",
+"Phrase_Node": "",
+"PlayerController": "",
+"Response_Node": "",
+"Stack": "",
+"SystemScript": "",
+"WeaponRefBase": "",
+"WeaponReferenceBase": ""
+}
+
+[application]
+
+config/name="Game"
+config/use_hidden_project_data_directory=false
+config/icon="res://addons/SDK/Icons/icon.png"
+
+[autoload]
+
+System="*res://addons/SDK/Scripts/System/SystemScript.gd"
+Database="*res://addons/SDK/Scripts/System/GameDataBase/DataBase.gd"
+Modules="*res://addons/SDK/Scripts/System/Mod/ModManagment/ModuleManager.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/SDK/plugin.cfg" )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://addons/SDK/Scene/default_env.tres"

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://import/Glass.glb-ad42b81c269d8f4c2a771cb57a582f9d.scn"
+path="res://.import/Glass.glb-ad42b81c269d8f4c2a771cb57a582f9d.scn"
 
 [deps]
 
 source_file="res://Modules/TestingModule/Models/Glass.glb"
-dest_files=[ "res://import/Glass.glb-ad42b81c269d8f4c2a771cb57a582f9d.scn" ]
+dest_files=[ "res://.import/Glass.glb-ad42b81c269d8f4c2a771cb57a582f9d.scn" ]
 
 [params]
 
