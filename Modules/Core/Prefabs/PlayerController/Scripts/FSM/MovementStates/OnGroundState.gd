@@ -1,12 +1,18 @@
+#Grounded state
+#Используется во время того, как персонаж стоит, или после остановки
 extends "res://Modules/Core/Prefabs/PlayerController/Scripts/FSM/BaseStates/PlayerMovementState.gd"
 
+var inertia_func
+var inertia_value
+const inertia_reduction_base = 0.02
 func on_enter(object):
 	if !player_controller:
 		.on_enter(object)
 	state_machine.velocity = Vector3.ZERO
+	inertia_value = 1
 
 func on_exit():
-	pass
+	inertia_func = null
 
 func handle_input():
 	.handle_input()
@@ -23,9 +29,17 @@ func handle_input():
 func update(delta):
 	if not player_controller.is_on_floor():
 		state_machine.velocity += gravity * delta
-	#var inertia_value = (state_machine.inertia_curve as Curve).interpolate(state_machine.velocity_inertia.normalized().length())
-	#print(state_machine.velocity_inertia.normalized().length())
 	
-	player_controller.move_and_slide_with_snap(state_machine.velocity,Vector3.DOWN,Vector3.UP)
-	#print("grounded")
-	#print(state_machine.velocity_inertia)
+	player_controller.move_and_slide_with_snap(state_machine.velocity_inertia,Vector3.DOWN,Vector3.UP)
+	inertia_func = inertia_routine();
+	
+	if inertia_func is GDScriptFunctionState and inertia_func.is_valid() and !is_equal_approx(inertia_value,0):
+		state_machine.velocity_inertia *= inertia_value
+		inertia_func = inertia_func.resume()
+	else:
+		state_machine.velocity_inertia *= 0
+
+func inertia_routine():
+	while !is_equal_approx(inertia_value,0):
+		inertia_value -= inertia_reduction_base
+		yield()
