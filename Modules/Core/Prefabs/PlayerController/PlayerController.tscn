@@ -239,6 +239,7 @@ onready var combat = $combat
 var allowed_move = 5
 #To be rewritten when inventory system and different types of weapons are done
 #TODO charge of weapon aka strong attack
+#Возможно, будет State-machine
 func _input(event):
 	if event is InputEventMouseMotion:
 		combat.side_attack_angle += -clamp(event.relative.y,-45,45)
@@ -718,13 +719,14 @@ collision_mask = 2
 shape = SubResource( 14 )
 
 [node name="Camera" type="Camera" parent="SpringArm"]
+cull_mask = 524287
 far = 8192.0
 
 [node name="RayCast" type="RayCast" parent="SpringArm/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.629443 )
 enabled = true
 cast_to = Vector3( 0, 0, -5 )
-collision_mask = 2
+collision_mask = 14
 debug_shape_custom_color = Color( 0.721569, 0, 0, 1 )
 script = SubResource( 21 )
 
@@ -733,6 +735,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5,
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+layers = 524288
 mesh = SubResource( 5 )
 material/0 = null
 

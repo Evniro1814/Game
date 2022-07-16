@@ -12,7 +12,7 @@ onready var player_animation_tree = $AnimationTree
 onready var player_inventory = $player_inventory
 
 onready var camera:Camera = $SpringArm/Camera
-onready var ray:RayCast = $RayCast
+onready var ray:RayCast = $SpringArm/Camera/RayCast
 func _ready():
 	assert(camera and player_data)
 	
@@ -22,10 +22,10 @@ func _process(delta):
 func _input(event):
 	pass
 
-func add_effect(effect):
+func add_effect(_effect):
 	pass
 
-func remove_effect(effect):
+func remove_effect(_effect):
 	pass
 
 func set_first_person_camera():
