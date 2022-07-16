@@ -21,6 +21,6 @@ func handle_input():
 	if Input.is_action_just_pressed("toggle_walk_run"):
 		toggle_walk_run = !toggle_walk_run
 
-func handle_events(event):
+func handle_events(_event):
 	pass
 
