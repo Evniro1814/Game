@@ -18,7 +18,7 @@ func handle_input():
 		input_dir += Vector3.LEFT
 	elif Input.is_action_pressed("move_right"):
 		input_dir += Vector3.RIGHT
-	if Input.is_action_just_released("Sprint"):
+	if Input.is_action_just_released("sprint"):
 		return "m_movement"
 	if Input.is_action_just_pressed("jump"):
 		return "m_jump"

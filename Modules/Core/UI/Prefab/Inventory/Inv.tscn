@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+onready var GR = $P/SC/VC
+var itemins = preload(\"res://Modules/Core/UI/Prefab/Inventory/ItemItemInventory.tscn\")
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _input(event):
+	if event is InputEventKey:
+		if event.is_action_released(\"move_back\"):
+			GR.add_child(itemins.instance().init())
+			print(\"bb\")
+"
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
+
+[node name="P" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SC" type="ScrollContainer" parent="P"]
+anchor_right = 0.3125
+anchor_bottom = 1.0
+rect_clip_content = false
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VC" type="VBoxContainer" parent="P/SC"]
+
+[node name="IT" type="GridContainer" parent="P"]
+anchor_left = 0.5
+anchor_top = 0.213333
+anchor_right = 0.75
+anchor_bottom = 0.853333
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}

@@ -11,6 +11,10 @@ class_name ItemContainerBase
 #иначе если нет стеков то создаём новый стек
 export var items:Array
 
+signal item_added(item)
+signal item_dropped(item,pos)
+signal item_removed(item_id)
+
 func add_item(item:ItemInstance):
 	items.append(item)
 	print("item added to container: ",item)

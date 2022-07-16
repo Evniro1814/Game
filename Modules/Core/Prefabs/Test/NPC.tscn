@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody
+
+var pathfinding:Navigation
+
+
+
+func _ready():
+	pathfinding = get_parent().find_node(\"Navigation\")
+	print(\"found nav\")
+
+func _process(delta):
+	pass
+"
+
+[sub_resource type="CapsuleShape" id=2]
+
+[sub_resource type="CapsuleMesh" id=3]
+
+[sub_resource type="SphereMesh" id=4]
+
+[node name="NPC" type="KinematicBody"]
+script = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+layers = 4
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape/MeshInstance"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.777217, -3.5836e-08, -0.819831 )
+mesh = SubResource( 4 )
+material/0 = null
