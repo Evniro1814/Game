@@ -21,20 +21,22 @@ func _init():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	init_settings()
 	settings.set_options(settings_file)
+	
 func init_settings():
 	var err = settings_file.load("user://settings.cfg")
-	if !err == OK:
+	if !err == OK or OS.has_feature("editor"):
 		settings_file.set_value("Input","mouse_sensitivity",0.5)
+		settings_file.set_value("Localization","Language","en")
 		settings_file.save("user://settings.cfg")
-
+	
 func get_settings()->ConfigFile:
 	return settings_file
 
 func get_options()->Options:
 	return settings
-	
+#Pauses or unpauses game
 func pause_game():
-	pass
+	get_tree().paused = !get_tree().paused
 
 func start_new_game():
 	#LoadingScreen.onStartLoading()
@@ -42,9 +44,14 @@ func start_new_game():
 
 class Options:
 	var mouse_sensitivity:float
+	var current_locale:String
+	
+	
 	func set_options(settings_file):
 		mouse_sensitivity = settings_file.get_value("Input","mouse_sensitivity")
-
+		current_locale = settings_file.get_value("Localization","Language")
+	func update_option(settin):
+		pass
 #func _init():
 #	#get_node("/root").add_child(startingScene)
 #	ModuleManager = _Modules
