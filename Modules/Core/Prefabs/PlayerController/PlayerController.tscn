@@ -222,7 +222,9 @@ script/source = "extends Control
 
 func _on_continue_button_down():
 	find_parent(\"UI\").close_all_menus()
-
+	#Tested some native code
+	var ddd = load(\"res://simple.gdns\").new()
+	print(ddd.get_data())
 
 func _on_Exit_button_down():
 	pass # Replace with function body.

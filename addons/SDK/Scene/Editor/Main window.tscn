@@ -10,14 +10,46 @@ script/source = "extends Control
 var current_dialogue:Dialogue_Container
 
 var is_current_dialogue_changed:bool
-
+var context_menu:PopupMenu
 onready var inspector = $dialogue_inspector
+onready var dialogue_edit = $cont_editor/dialogue_graph_edit
+
+var phrase_pref = preload(\"res://addons/SDK/Scene/Editor/DialogueEditor/PhraseNode.tscn\")
+var response_pref = preload(\"res://addons/SDK/Scene/Editor/DialogueEditor/ResponseNode.tscn\")
+var current_node
+var current_position
+var all_nodes:Array
 
 func _on_GraphEdit_popup_request(position):
-	pass
-
+	#dialogue_edit.show_modal()
+	if !context_menu:
+		context_menu = PopupMenu.new()
+		#context_menu.set_position(position,true)
+		context_menu.connect(\"id_pressed\",self,\"on_PopupMenu_id_pressed\")	
+		get_parent().get_parent().add_child(context_menu)
+		
+		context_menu.add_item(\"str_new_phrase\",0)
+		context_menu.add_item(\"str_new_response\",1)
+		if current_node:
+			context_menu.add_item(\"remove_current_node\",2)
+	else:
+		if !current_node and context_menu.items.size() == 3:
+			context_menu.remove_item(2)
+		elif !current_node and context_menu.items.size() == 2:
+			return
+		elif current_node and context_menu.items.size() == 3:
+			return
+		elif current_node and context_menu.items.size() == 2:
+			context_menu.add_item(\"remove_current_node\",2)
+	context_menu.popup_centered()
+	print(\"2\")
+#NODE SLOT TYPE
+#0 = BOTH
+#1 = RESPONSE
+#2 = PHRASE
 
 func _on_dialogue_graph_edit_node_selected(node):
+	current_node = node
 	pass # Replace with function body.
 
 
@@ -32,8 +64,28 @@ func new_dialogue_container():
 
 #0 = phrase
 #1 = response
-func _on_PopupMenu_id_pressed(id):
-	pass
+#2 remove
+func on_PopupMenu_id_pressed(id):
+	if id == 0:
+		dialogue_edit.add_child(phrase_pref.instance().init_node(\"22\"))
+	elif id == 1:
+		dialogue_edit.add_child(response_pref.instance().init_node(\"22\"))
+	else:
+		print(\"remove\")
+
+
+
+func _on_dialogue_graph_edit_connection_request(from, from_slot, to, to_slot):
+	if from.is_class(\"ResponseNode\"):
+		pass
+	elif from.is_class(\"PhraseNode\"):
+		pass
+	pass # Replace with function body.
+
+
+func _on_dialogue_graph_edit_node_unselected(node):
+	current_node = null
+	pass # Replace with function body.
 "
 
 [sub_resource type="GDScript" id=4]
@@ -303,17 +355,6 @@ anchor_left = 0.34252
 anchor_right = 0.452756
 anchor_bottom = 0.0425532
 
-[node name="PopupMenu" type="PopupMenu" parent="TabContainer/Dialogue editor"]
-visible = true
-anchor_left = 0.311024
-anchor_top = 0.170213
-anchor_right = 0.437008
-anchor_bottom = 0.301418
-items = [ "Add phrase", null, 0, false, false, 0, 0, null, "", false, "", null, 0, false, true, 1, 0, null, "", true, "Add response", null, 0, false, false, 2, 0, null, "", false ]
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
 [node name="Quest editor" type="Control" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -357,6 +398,7 @@ __meta__ = {
 
 [node name="LoadedModules" type="Node" parent="."]
 
+[connection signal="connection_request" from="TabContainer/Dialogue editor/cont_editor/dialogue_graph_edit" to="TabContainer/Dialogue editor" method="_on_dialogue_graph_edit_connection_request"]
 [connection signal="node_selected" from="TabContainer/Dialogue editor/cont_editor/dialogue_graph_edit" to="TabContainer/Dialogue editor" method="_on_dialogue_graph_edit_node_selected"]
+[connection signal="node_unselected" from="TabContainer/Dialogue editor/cont_editor/dialogue_graph_edit" to="TabContainer/Dialogue editor" method="_on_dialogue_graph_edit_node_unselected"]
 [connection signal="popup_request" from="TabContainer/Dialogue editor/cont_editor/dialogue_graph_edit" to="TabContainer/Dialogue editor" method="_on_GraphEdit_popup_request"]
-[connection signal="id_pressed" from="TabContainer/Dialogue editor/PopupMenu" to="TabContainer/Dialogue editor" method="_on_PopupMenu_id_pressed"]

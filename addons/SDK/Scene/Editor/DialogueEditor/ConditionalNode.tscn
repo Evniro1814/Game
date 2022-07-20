@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends GraphNode
+
+export var current_phrase_file:Resource
+
+func init_node(id):
+	self.title = id
+	return self
+
+func is_class(_class):
+	return _class == \"PhraseNode\" or .is_class(_class)
+func get_class():
+	return \"PhraseNode\"
+"
+
+[node name="ConditionalNode" type="GraphNode"]
+margin_right = 201.0
+margin_bottom = 138.0
+title = "Phrase node"
+resizable = true
+overlay = 2
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 0.737255, 0, 0, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 0, 0.0156863, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 0, 0.0392157, 1, 1 )
+script = SubResource( 1 )
+
+[node name="Entering" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 185.0
+margin_bottom = 38.0
+text = "Phrase or response"
+
+[node name="Entering2" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 39.0
+margin_right = 185.0
+margin_bottom = 53.0
+text = "Phrase or response"
+align = 2

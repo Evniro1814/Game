@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Agent",
-"language": "GDScript",
-"path": "res://addons/SDK/Scripts/Common/AI/Custom Pathfinding/Agent/Agent.gd"
-}, {
 "base": "ItemReferenceBase",
 "class": "ArmorReferenceBase",
 "language": "GDScript",
@@ -28,6 +23,11 @@ _global_script_classes=[ {
 "class": "BaseState",
 "language": "GDScript",
 "path": "res://addons/SDK/Scripts/Common/FSM/State/BaseState.gd"
+}, {
+"base": "Resource",
+"class": "BehaviorSet",
+"language": "GDScript",
+"path": "res://addons/SDK/Scripts/Common/AI/BehaviorSet/BehaviorSet.gd"
 }, {
 "base": "Node",
 "class": "CharacterEffectsNode",
@@ -150,10 +150,10 @@ _global_script_classes=[ {
 "path": "res://addons/SDK/Scripts/Common/Item/Items/WeaponReferenceBase.gd"
 } ]
 _global_script_class_icons={
-"Agent": "",
 "ArmorReferenceBase": "",
 "ArrayMesh_VertexGroupSupport": "",
 "BaseState": "",
+"BehaviorSet": "",
 "CharacterEffectsNode": "",
 "CharacterSheet": "",
 "CombatScript": "",
@@ -186,16 +186,6 @@ config/name="Game"
 run/main_scene="res://Modules/Core/Map/Testing/Testing_envir.tscn"
 config/use_hidden_project_data_directory=false
 config/icon="res://addons/SDK/Icons/icon.png"
-
-[autoload]
-
-System="*res://addons/SDK/Scripts/System/SystemScript.gd"
-Database="*res://addons/SDK/Scripts/System/GameDataBase/DataBase.gd"
-Modules="*res://addons/SDK/Scripts/System/Mod/ModManagment/ModuleManager.gd"
-
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/SDK/plugin.cfg" )
 
 [input]
 
@@ -270,7 +260,6 @@ action={
 
 [locale]
 
-test="RU"
 locale_filter=[ 0, [ "en", "ru" ] ]
 
 [physics]
